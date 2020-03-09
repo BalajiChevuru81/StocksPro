@@ -1,0 +1,43 @@
+<div class=hero-image>
+  <h2 align:centre>Sector</h2>
+<button type="button" class="btn btn-info "><a routerLink="/addsectors">Add</a></button>
+<table class="table table-hover table-sm">
+
+  <thead>
+
+    <tr>
+
+      <th>Sectorid</th>
+
+      <th>Sectorname</th>
+
+      <th>Brief</th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let sector of sectorsList">
+
+      <td>{{sector.sectorid}}</td>
+
+      <td>{{sector.sectorname}}</td>
+
+      <td>{{sector.brief}}</td>
+
+      <td><button (click)="deleteSector(sector)" class='btn btn-danger'><i class="fa fa-futboll-0">Delete</i></button>
+        &nbsp;
+
+        <button (click)="updateSector(sector)" class='btn btn-info' data-toggle="modal"
+          data-target="#myModal">Update</button>
+      </td>
+    </tr>
+  </tbody><br>
+</table>
+<div>
+  <button type="button" class="btn btn-outline-primary "><a routerLink="/admin-portal">Back</a></button>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+</div>

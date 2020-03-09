@@ -1,0 +1,10 @@
+.bg{
+    background-image: url("https://images.pexels.com/photos/1334093/pexels-photo-1334093.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+ height:570px;
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+  }
+  *{
+      color: blanchedalmond;
+  }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<div class="bg">
+    <button type="button" class="btn btn-info "><a routerLink="/add">Add</a></button>
+    
+<div class="container">
+ <h2>Company-Details</h2>
+ 
+  
+ <table class="table table-hover table-sm"  >
+  
+    <thead class="thead-light">
+
+      <tr>
+
+        <th>CompanyName</th>
+
+        <th>TurnOver</th>
+
+        <th>CEO Name</th>
+
+        <th>Board of Directors</th>
+        
+        <th>Listed in StockExchange</th>
+
+        <th>Sector</th>
+        <th>Remarks</th>
+        <th>Stock Code</th>
+        
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+       <tr *ngFor="let company of companyList ">
+
+        <td>{{company.companyname}}</td>
+
+        <td>{{company.turnover}}</td>
+
+        <td>{{company.ceoname}}</td>
+
+        <td>{{company.bod}}</td>
+
+        <td>{{company.listedinse}}</td>
+
+        <td>{{company.sector}}</td>
+        
+        <td>{{company.remarks}}</td>
+        
+        <td>{{company.stockcode}}</td>
+        
+        <td><button (click)="deleteCompany(company)" class='btn btn-danger'><i class="fa fa-futboll-0">Delete</i></button>   &nbsp;
+          <button (click)="updateCompany(company)" class='btn btn-info'  
+          data-toggle="modal" data-target="#myModal">Update</button>  
+        </td>
+
+       </tr>
+
+    </tbody><br>
+
+  </table>
+
+
+
+
+</div>
+<button type="button" class="btn btn-outline-primary "><a routerLink="/admin-portal">Back</a></button>
+</div>
+</html>

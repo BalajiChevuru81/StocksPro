@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bootstrap Sign up Form with Rounded Social Buttons</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		body {
+			background: #070708 !important;
+			font-family: 'Roboto', sans-serif;
+			background-size: cover;
+			color:white
+		}
+	</style>
+</head>
+
+<body>
+	<!--<div class=col-sm-6>
+		<br><br>
+				<br><br><br>
+		<img src="https://hexaware.com/wp-content/uploads/2019/10/lloyd-sarrel-coo-coresource-a-trustmark-company-talks-about-coresources-15-years-of-strategic-partnership-with-hexaware.jpg" width:1500px height=300px align:center>
+	</div>-->
+	<div class=container-fluid id="signup">
+	<div class="signup-form">
+		<form [formGroup]="usersaveform" #saveUser1 (ngSubmit)="saveUser(saveUser1)">  
+			<h2>Create an Account</h2>
+			<p class="hint-text">Sign up with your social media account or email address</p>
+			<div class="social-btn text-center">
+				<a href="#" class="btn btn-primary btn-lg"><i class="fa fa-facebook"></i> Facebook</a>
+				<a href="#" class="btn btn-info btn-lg"><i class="fa fa-twitter"></i> Twitter</a>
+				<a href="#" class="btn btn-danger btn-lg"><i class="fa fa-google"></i> Google</a>
+			</div>
+			<div class="or-seperator"><b></b></div>
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+			<div class="form-group">
+
+				<div class="input-group">User Name
+
+					<input type="text" class="form-control" formControlName="username" placeholder="Username"
+						required="required">
+
+					<div class="alert alert-danger" *ngIf="(Username.touched) && (Username.invalid)"
+						style="margin-top: 5px;">
+
+						<span *ngIf="Username.errors.required">UserName is Required</span>
+
+						<span *ngIf="Username.errors.minlength">
+
+							MinLength Error
+
+						</span>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="form-group">Password
+
+				<div class="input-group">
+
+					<input type="password" class="form-control" formControlName="password" placeholder="Password"
+						required="required">
+
+					<div class="alert alert-danger" *ngIf="(Password.touched) && (Password.invalid)"
+						style="margin-top: 5px;">
+
+						<span *ngIf="Password.errors.required">Password is Required</span>
+
+						<span *ngIf="Password.errors.minlength">
+
+							MinLength Error
+
+						</span>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="form-group">Confirm(Yes or No)
+
+				<div class="input-group">
+
+					<input type="text" class="form-control" formControlName="confirm" placeholder="Confirm"
+						required="required">
+
+				</div>
+
+			</div>
+
+			<div class="form-group">Email
+
+				<div class="input-group">
+
+					<input type="email" class="form-control" formControlName="email" placeholder="Email Address"
+						required="required">
+
+					<div class="alert alert-danger" *ngIf="(Email.touched) && (Email.invalid)" style="margin-top:5px;">
+
+						<span *ngIf="Email.errors.required">User Email is Required</span>
+
+						<span *ngIf="Email.errors.email">Invalid Email Format</span>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="form-group">Mobile Number
+
+				<div class="input-group">
+
+					<input type="number" class="form-control" formControlName="phone" placeholder="Phone"
+						required="required">
+
+					<div class="alert alert-danger" *ngIf="(Phone.touched)&& (Phone.invalid) " style="margin-top: 5px;">
+
+						<span *ngIf="Phone.errors.required">Phone is Required</span>
+
+					</div>
+
+				</div>
+
+			</div>
+			<div class="form-group">
+
+				<div class="input-group">User or Admin
+
+					<input type="String" class="form-control" formControlName="usertype" placeholder="Usertype"
+						required="required">
+
+					<div class="alert alert-danger" *ngIf="(Usertype.touched)&& (Usertype.invalid) " style="margin-top: 5px;">
+
+						<span *ngIf="Usertype.errors.required">Phone is Required</span>
+
+					</div>
+
+				</div>
+
+			</div>
+			<div class="form-group">
+
+				<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a
+						href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+
+			</div>
+
+			<div class="form-group">
+
+				
+				<button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
+			</div>
+		</div>
+	</div>
+		</form>
+		<div class="text-center">Already have an account?<a  routerLink="/login">Login</a></div>
+</div>
+   
+</div>  
+<div [hidden]="!submitted">
+
+	<button (click)="usersaveform()" ></button>
+	
+	</div> 
+
+</body>
+
+</html>
