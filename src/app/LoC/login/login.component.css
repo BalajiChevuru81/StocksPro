@@ -1,8 +1,8 @@
 body{
-    background-image: url(../images/globe2.jpg);
+    background-image: url("https://pbs.twimg.com/media/Cr63l4DWEAA8dYv.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
 *{
-    color: white;
+    color:black;
 }

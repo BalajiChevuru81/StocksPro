@@ -67,7 +67,6 @@ export class HighchartsService {
 
       name: 'cts',
 
-
       data: [70000, 30000, 30000, 20000, 70000, 90000, 50000]
     }
 

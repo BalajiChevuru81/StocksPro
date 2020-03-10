@@ -32,12 +32,12 @@ export class UpdatecompanyComponent implements OnInit {
             this.company =data;  
             this.companyupdateform.setValue(this.company);
           }) ;
-        }
+        
 
     this.submitted = false;
   }
 
-
+  }
 
   companyupdateform = new FormGroup({
     companyname: new FormControl('', [Validators.required]),

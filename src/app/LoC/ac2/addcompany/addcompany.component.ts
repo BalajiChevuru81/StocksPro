@@ -51,11 +51,7 @@ export class AddcompanyComponent implements OnInit {
     this.companyservice.saveCompany(this.company)
       .subscribe(data => console.log(data), error => console.log(error));
     this.company = new Ac2();
-  }
-
- 
- 
-  
+  } 
   get Companyname() {
     return this.companysaveform.get('companyname');
   }

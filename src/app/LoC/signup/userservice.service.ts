@@ -29,4 +29,25 @@ export class UserserviceService {
  findByUsernameAndPassword(username:String,password:String): Observable<User> {
     return this.http.get<User>(`${this.baseUrl}`+'/findByUsernameAndPassword/'+username+'/'+password);
    }
+
+   uploadFile( file: File , username : String ) : Observable<any>
+
+  {
+
+   let url = this.baseUrl + "uploadImage/" + username ;
+
+
+
+   const formdata: FormData = new FormData();
+
+
+
+   formdata.append('file', file);
+
+
+
+   return this.http.post(url , formdata);
+
+  }  
+  
 }

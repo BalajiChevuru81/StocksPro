@@ -16,13 +16,13 @@ export class Ac2serviceService {
   return this.http.post(`${this.baseUrl}`+'saveCompany', companyname);
  }
  deleteCompany(companyname: String): Observable<object> {
-  return this.http.delete(`${this.baseUrl}/deleteCompany/${companyname}`);
+  return this.http.delete(`${this.baseUrl}deleteCompany/${companyname}`);
  }
  findOneInAll4(companyname: String): Observable<any> {
-  return this.http.get(`${this.baseUrl}`+'findOneInAll4/'+companyname);
+  return this.http.get(`${this.baseUrl}/findOneInAll1/${companyname}`);
  }
  updateCompany(companyname: object, value: String): Observable<Object> {
-  return this.http.put(`${this.baseUrl}`+'updateCompany/'+value, companyname);
+  return this.http.put(`${this.baseUrl}/updateCompany/${companyname}`,value);
  }
 }
 

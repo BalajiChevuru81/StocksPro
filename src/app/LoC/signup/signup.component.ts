@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   constructor(private router: Router,private userservice:UserserviceService) { }
 
   user : User= new User();
-  
+  selectedFiles: FileList; 
   submitted = false;
 
  ngOnInit() {
@@ -32,8 +32,43 @@ export class SignupComponent implements OnInit {
         }
   this.submitted=false;
  }
+ 
+
+selectFile(event) {
+
+ const file = event.target.files.item(0);
 
 
+
+ if (file.type.match('image.*')) {
+
+  var size = event.target.files[0].size;
+
+  if(size > 1000000)
+
+  {
+
+    alert("size must not exceeds 1 MB");
+
+    this.usersaveform.get('profileimage').setValue("");
+
+  }
+
+  else
+
+  {
+
+   this.selectedFiles = event.target.files;
+
+  }
+
+ } else {
+
+  alert('invalid format!');
+
+ }
+
+} 
 
  usersaveform=new FormGroup({
   username:new FormControl('', [Validators.required , Validators.minLength(5) ] ),
@@ -41,6 +76,7 @@ export class SignupComponent implements OnInit {
   email:new FormControl('',[Validators.required,Validators.email]),
   phone:new FormControl('',[Validators.required]),
   confirm:new FormControl(),
+  profileimage : new FormControl(),
   usertype:new FormControl()
 
  });
@@ -55,6 +91,9 @@ export class SignupComponent implements OnInit {
   this.user.phone=this.Phone.value;
   this.user.confirm=this.Confirm.value;
   this.user.usertype=this.Usertype.value;
+  this.user.profileimage=this.Profileimage.value;
+
+
   this.submitted = true;
   this.save();
  }
@@ -88,6 +127,15 @@ export class SignupComponent implements OnInit {
  get Usertype(){
   return this.usersaveform.get('usertype');
  }
+
+ get Profileimage(){
+
+
+  return this.usersaveform.get('profileimage');
+  
+   }
+  
+  
 
  saveuserForm(){
   this.submitted=false;

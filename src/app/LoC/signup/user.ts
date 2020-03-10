@@ -5,4 +5,5 @@ export class User {
     phone:number;
     confirm:String;
     usertype:String;  
+    profileimage:String;
 }
