@@ -1,3 +1,5 @@
+import { Time } from '@angular/common';
+
 export class Ac6 {
     companyname:String;
 
@@ -5,8 +7,8 @@ export class Ac6 {
 
    currentprice:String;
 
-  date:String;
+  date:Date;
 
-   time:String;
+   time:Time;
   
 }
