@@ -5,10 +5,11 @@ export class Ac6 {
 
   stockexchange:String;
 
-   currentprice:String;
+   currentprice:Number;
 
-  date:Date;
+  date:String;
 
-   time:Time;
+   time:String;
+   uploadfile:String
   
 }

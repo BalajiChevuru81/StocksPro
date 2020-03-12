@@ -47,4 +47,24 @@ export class Ac6Service {
 
  }
 
+ getmultiplelinechart(): Observable<any> {
+
+  return this.http.get(`${this.baseUrl}`+'multiplelinechart');
+
+ }
+
+ uploadFile(file: File, stockexchange: String): Observable<any> {
+
+  let url = this.baseUrl + "uploadfile/" + stockexchange;
+
+  const formdata: FormData = new FormData();
+
+  formdata.append('file', file);
+
+  return this.http.post(url, formdata);
+
+
+
+ }
+
 }
