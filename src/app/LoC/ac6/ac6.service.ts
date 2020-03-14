@@ -12,9 +12,7 @@ export class Ac6Service {
 
   
  private baseUrl = 'http://localhost:8081/Stockprice/stockprice';
-
-
-
+ 
  constructor(private http:HttpClient) { }
 
  getAllStockPrice(): Observable<any> {
@@ -49,7 +47,7 @@ export class Ac6Service {
 
  getmultiplelinechart(): Observable<any> {
 
-  return this.http.get(`${this.baseUrl}`+'multiplelinechart');
+  return this.http.get(`${this.baseUrl}`+'/multiplelinechart');
 
  }
 

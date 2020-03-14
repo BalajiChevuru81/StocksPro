@@ -26,6 +26,7 @@ import { Ac5Service } from '../ac5/ac5.service';
 import { Ac6Service } from '../ac6/ac6.service';
 import { Ac2serviceService } from '../ac2/ac2service.service';
 import { HighchartsService } from './highcharts-service.service';
+import * as Highcharts from 'highcharts';
 @Component({
   selector: 'app-uc2',
   templateUrl: './uc2.component.html',
@@ -145,7 +146,7 @@ export class Uc2Component implements OnInit {
  
     title: {
  
-     text: 'Solar Employment Growth by Sector, 2010-2019'
+     text: 'Company Growth, 2010-2020'
  
     },
  

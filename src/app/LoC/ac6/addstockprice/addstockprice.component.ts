@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ac6Service } from 'src/app/LoC/ac6/ac6.service';
 
-import {FormControl,FormGroup,Validators} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Ac6 } from 'src/app/LoC/ac6/ac6';
 import { Router } from '@angular/router';
@@ -12,97 +12,122 @@ import { Router } from '@angular/router';
 })
 export class AddstockpriceComponent implements OnInit {
 
-  constructor(private router:Router,private stockpriceservice:Ac6Service) { }
-  stockprice : Ac6=new Ac6();
+  constructor(private router: Router, private stockpriceservice: Ac6Service) { }
+  stockprice: Ac6 = new Ac6();
   submitted = false;
   ngOnInit() {
-    if(companyname !="null"&& companyname!=""){
-    var companyname=window.localStorage.getItem("edit-companyname");
-   
-    this.stockpriceservice.findOneInAll5(companyname)  
-        .subscribe(  
-          data => {  
-            this.stockprice =data;  
+    if (companyname != "null" && companyname != "") {
+      var companyname = window.localStorage.getItem("edit-companyname");
+
+      this.stockpriceservice.findOneInAll5(companyname)
+        .subscribe(
+          data => {
+            this.stockprice = data;
             this.stockpricesaveform.setValue(this.stockprice);
-          }) ;
-        
-        }
+          });
+
+    }
     this.submitted = false;
-}
-  stockpricesaveform=new FormGroup({
+  }
+  stockpricesaveform = new FormGroup({
 
-  companyname:new FormControl('' , [Validators.required ] ),
+    companyname: new FormControl('', [Validators.required]),
 
-  stockexchange:new FormControl('',[Validators.required]),
+    stockexchange: new FormControl('', [Validators.required]),
 
-  currentprice:new FormControl('',[Validators.required]),
+    currentprice: new FormControl('', [Validators.required]),
 
-  date:new FormControl('',[Validators.required]),
+    date: new FormControl('', [Validators.required]),
 
-  time:new FormControl('',[Validators.required ])
+    time: new FormControl('', [Validators.required])
 
   });
 
-  saveStockPrice(saveStockPrice){
+  saveStockPrice(saveStockPrice) {
 
-  this.stockprice=new Ac6();
-  this.stockprice.companyname=this.Companyname.value;
-  this.stockprice.stockexchange=this.Stockexchange.value;
-  this.stockprice.currentprice=this.Currentprice.value;
-  this.stockprice.date=this.Date.value;
-  this.stockprice.time=this.Time.value;
-  this.submitted = true;
-  this.save();
+    this.stockprice = new Ac6();
+    this.stockprice.companyname = this.Companyname.value;
+    this.stockprice.stockexchange = this.Stockexchange.value;
+    this.stockprice.currentprice = this.Currentprice.value;
+    this.stockprice.date = this.Date.value;
+    this.stockprice.time = this.Time.value;
+    this.submitted = true;
+    this.save();
   }
 
   save() {
 
-  this.stockpriceservice.saveStockPrice(this.stockprice)
+    this.stockpriceservice.saveStockPrice(this.stockprice)
 
-   .subscribe(data => console.log(data), error => console.log(error));
+      .subscribe(data => console.log(data), error => console.log(error));
 
-  this.stockprice = new Ac6();
-  window.localStorage.removeItem("edit-companyname");
+    this.stockprice = new Ac6();
+    window.localStorage.removeItem("edit-companyname");
     this.router.navigate(['ac6']);
- 
+
 
   }
 
-  get Companyname(){
+  get Companyname() {
 
-  return this.stockpricesaveform.get('companyname');
+    return this.stockpricesaveform.get('companyname');
   }
 
-  get Stockexchange(){
+  get Stockexchange() {
 
-  return this.stockpricesaveform.get('stockexchange');
-
-  }
-
-  get Currentprice(){
-
-  return this.stockpricesaveform.get('currentprice');
+    return this.stockpricesaveform.get('stockexchange');
 
   }
 
+  get Currentprice() {
 
-
-  get Date(){
-
-  return this.stockpricesaveform.get('date');
+    return this.stockpricesaveform.get('currentprice');
 
   }
 
-  get Time(){
 
-  return this.stockpricesaveform.get('time');
+
+  get Date() {
+
+    return this.stockpricesaveform.get('date');
 
   }
-  saveStockPriceForm(){
 
-  this.submitted=false;
+  get Time() {
 
-  this.stockpricesaveform.reset();
+    return this.stockpricesaveform.get('time');
+
+  }
+  saveStockPriceForm() {
+
+    this.submitted = false;
+
+    this.stockpricesaveform.reset();
   }
 
- }
+  selectFile(event) {
+
+    const file = event.target.files.item(0);
+
+    alert(file.type);
+
+    if (file.type.match('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')) {
+
+      var size = event.target.files[0].size;
+
+      if (size > 1000000) {
+
+        alert("size must not exceeds 1 MB");
+
+        this.stockpricesaveform.get('uploadfile').setValue("");
+
+      }
+      else {
+        this.stockpricesaveform = event.target.files;
+      }
+    } else {
+      alert('invalid format!');
+    }
+  }
+
+}
